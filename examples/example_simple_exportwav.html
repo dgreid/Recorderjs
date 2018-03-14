@@ -82,7 +82,11 @@
     });
   }
 
-  window.onload = function init() {
+  var clicked = 0;
+
+  document.onclick = function init() {
+    if (clicked == 0) {
+		    clicked = 1;
     try {
       // webkit shim
       window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -99,6 +103,7 @@
     navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
       __log('No live audio input: ' + e);
     });
+    }
   };
   </script>
 
